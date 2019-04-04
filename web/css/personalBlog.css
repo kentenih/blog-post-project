@@ -1,0 +1,95 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 6, 2019, 10:19:26 AM
+    Author     : Ian
+*/
+
+body {
+    background-color:  #B599CE;
+}
+
+h1 {
+    text-align: center;
+    font-size: 54px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 36px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+p {
+    font-size: 18px;
+}
+
+img.authImage {
+    float: left;
+    width: 80px;
+    margin-right: 5px;
+}
+
+div.authSocial {
+    float:right; 
+    width:50%;
+    height:100px;
+    position: relative;
+}
+
+div.authSocial table {
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    -ms-transform: translate(-50%, -50%); 
+    transform: translate(-50%, -50%);
+    width:100%;
+    text-align: center;
+}
+
+div.authSocial img {
+    width: 50px;
+}
+
+div.comments .comment {
+    border: 2px solid black;
+}
+
+div.comments .comment, div.replies .reply {
+    margin: 5px;
+    padding: 5px;
+}
+
+div.comments .comment {
+    background-color: #CBB677;
+}
+
+div.comment .username {
+    font-weight: bold;
+}
+
+div.content {
+    overflow: auto;
+}
+
+div.container {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    padding: 5px;
+}
+
+div.replies .reply {
+    background-color:  #F4EFE1;
+}
+
+.hide {
+    display: none;
+}
