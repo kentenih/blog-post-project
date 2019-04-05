@@ -20,11 +20,21 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 /**
- *
+ * The Write class is responsible for recording information. In this case
+ * it writes comment and reply information to commentData.json when it
+ * receives a HttpServletRequest.
+ * 
  * @author Ian
  */
 public class Write {
    
+    /**
+     * Prepares the comment information to be written in writeCommentJson() by
+     * reading the commentData.json file and parsing out the necessary JSONObjects
+     * and JSONArrays.
+     * 
+     * @param request 
+     */
     public static void jsonComment(HttpServletRequest request) {
         JSONArray commentList;
         JSONObject jsonObject;
@@ -49,7 +59,13 @@ public class Write {
         }
     }
 
-
+    /**
+     * Accomplishes the actual writing of comments to commentData.json. 
+     * 
+     * @param request
+     * @param jsonObject
+     * @param commentList 
+     */
     private static void writeCommentJson(HttpServletRequest request, JSONObject jsonObject, JSONArray commentList) {
         JSONObject commentDetails = new JSONObject();
         JSONArray replyList = new JSONArray();
@@ -78,6 +94,16 @@ public class Write {
         }
     }
     
+    /**
+     * Accomplishes the same as jsonComment() and writeCommentJson() but all
+     * in one method. jsonReply is passed a HttpServletRequest and extracts 
+     * the reply information from it. It then writes that reply information
+     * to the appropriate comment in commentData.json. The method is able
+     * to find the appropriate comment due to the comment number being submitted
+     * with the HttpServletRequest.
+     * 
+     * @param request 
+     */
     public static void jsonReply(HttpServletRequest request) {
         JSONArray commentList;
         JSONArray replyList;

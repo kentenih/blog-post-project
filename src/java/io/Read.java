@@ -20,12 +20,21 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 /**
- *
+ * The Read class handles reading the commentData.json file and creates an
+ * ArrayList of Comment objects.
+ * 
  * @author Ian
  */
 public class Read {
     public static final String JSONFILEPATH = "C:\\Users\\Ian\\Documents\\NetBeansProjects\\PersonalBlogv2\\commentData.json";
     
+    /**
+     * Reads the commentData.json file and returns an ArrayList of 
+     * Comment objects to the caller. These Comment objects collectively
+     * contain all information in the commentData.json file.
+     * 
+     * @return ArrayList of Comment objects
+     */
     public static ArrayList readJson() {
         JSONObject jsonObject;
         JSONArray commentList;

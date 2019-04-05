@@ -28,6 +28,16 @@ import javax.servlet.http.*;
 @WebServlet("/postName")
 public class PostServlet extends HttpServlet {
     
+    /**
+     * When a user goes to localhost:8080/PersonalBlogv2/postName in a browser,
+     * executing a "GET" request to /postName, the postName.jsp file will be
+     * served up to hte user.
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
@@ -37,14 +47,12 @@ public class PostServlet extends HttpServlet {
     }
     
     /**
-     * When a form's action is "comment" and method is "POST", this method will
-     * be called. First the method checks to see if the commentData.json file
-     * exists. If it does, it will retrieve the necessary JSON information from
-     * the .json file. If it does not, it will create a new JSONObject and JSONArray
-     * to store the necessary information. The information put into the comment 
-     * form will be saved into commentData.json. The information included is a user,
-     * comment, date/time, and commentNumber. This is accomplished by calling the
-     * writeCommentData() method.
+     * When a HTML form in the postName.jsp file has the action "POST", this 
+     * method will be executed. If the request has the "comment" parameter, the
+     * Write.jsonComment() method will be called to write the comment information
+     * to commentData.json. If the request has the "reply" parameter, the 
+     * Write.jsonComment() method will be called to write the reply information
+     * to commentData.json.
      * 
      * @param request
      * @param response

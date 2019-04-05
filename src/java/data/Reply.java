@@ -6,7 +6,10 @@
 package data;
 
 /**
- *
+ * The Reply class designed to store reply information related to a Comment. 
+ * That information can be accessed with get methods after a Reply object 
+ * is made and the values are initialized with the constructor.
+ * 
  * @author Ian
  */
 public class Reply {
@@ -15,7 +18,8 @@ public class Reply {
     private final String replyTime;
     private final Long replyNumber;
     
-    public Reply (String user, String reply, String replyTime, Long replyNumber) {
+    public Reply (String user, String reply, 
+            String replyTime, Long replyNumber) {
         this.user = user;
         this.reply = reply;
         this.replyTime = replyTime;

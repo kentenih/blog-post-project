@@ -8,8 +8,11 @@ package data;
 import java.util.ArrayList;
 
 /**
- *
- * @author Ian
+ * A Comment class designed to store comment information. That information
+ * can be accessed with get methods after a Comment object is made and the 
+ * values are initialized with the constructor.
+ * 
+ * @author Ian Kenten
  */
 public class Comment {
     private ArrayList<Reply> replyList;

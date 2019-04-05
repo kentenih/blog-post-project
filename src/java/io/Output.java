@@ -11,11 +11,19 @@ import data.Reply;
 import java.util.ArrayList;
 
 /**
- *
+ * The Output class is dedicated to outputting information to JSP. 
+ * Specifically it returns all the comment information to postName.jsp
+ * as a String when the outputCommentData() is called.
+ * 
  * @author Ian
  */
 public class Output {
     
+    /**
+     * Returns a String of all comment data in HTML syntax.
+     * 
+     * @return String of comment data
+     */
     public static String outputCommentData () {
         ArrayList<Comment> commentData = Read.readJson();
         StringBuilder comments = new StringBuilder();
@@ -42,10 +50,22 @@ public class Output {
         return comments.toString();
     }
     
+    /**
+     * Template for the comment header.
+     * 
+     * @param numberOfComments
+     * @return String of comment header in HTML
+     */
     private static String getCommentHeader(int numberOfComments) {
         return "<h3>Comments (" + numberOfComments + ")</h3>\n<div class=\"comments\">\n";
     }
     
+    /**
+     * Template for the comment.
+     * 
+     * @param comment
+     * @return String of comment in HTML syntax
+     */
     private static String getCommentFormat(Comment comment) {
         return "<div id=\"comment" + comment.getCommentNumber() + "\" class=\"comment\">\n" 
             + "<p><span class=\"username\">" + comment.getUser() + "</span> | " + comment.getCommentTime() + " EST</p>\n"
@@ -53,6 +73,12 @@ public class Output {
             + "<button class=\"replyButton\">Reply</button><br>\n" + getReplyForm(comment.getCommentNumber()) + "\n";
     }
     
+    /**
+     * Template for reply form.
+     * 
+     * @param commentNumber
+     * @return String of reply form in HTML syntax
+     */
     private static String getReplyForm(Long commentNumber) {
        return "<form id=\"replyForm" + commentNumber + "\" action=\"postName\" method=\"POST\" class=\"hide\">\n"
             + "<hr><label for=\"user\">Username:</label>\n"
@@ -65,10 +91,23 @@ public class Output {
             + "</form>\n"; 
     }
     
+    /**
+     * Template for reply header.
+     * 
+     * @param numberOfReplies
+     * @return String of reply header in HTML syntax
+     */
     private static String getReplyHeader(int numberOfReplies) {
         return "<hr>\n<p>Replies (" + numberOfReplies + ")</p>\n";
     }
     
+    /**
+     * Template for reply.
+     * 
+     * @param reply
+     * @param commentNumber
+     * @return String of reply in HTML syntax
+     */
     private static String getReplyFormat(Reply reply, Long commentNumber) {
         return "<div id=\"reply" + commentNumber + "" + reply.getReplyNumber() + "\" class=\"reply\">\n" 
             + "<p><span class=\"username\">" + reply.getUser() + "</span> | " + reply.getReplyTime() + " EST</p>\n"
